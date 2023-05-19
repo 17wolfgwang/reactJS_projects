@@ -1,9 +1,15 @@
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
 
 const SignIn = () => {
   const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup();
-    console.log(response);
+    // Result of signInWithGooglePopup() -> Object UserCredentialImpl{}. inside of UserCredentialImpl, there is a user on key name.
+    // So UserCredentialImpl.user will be user info, and it pass to createUserDocumentFromAuth by 'userAuth'
+    const { user } = await signInWithGooglePopup();
+    const userDocRef = await createUserDocumentFromAuth(user);
+    // console.log(userDocRef);
   };
   return (
     <div>
