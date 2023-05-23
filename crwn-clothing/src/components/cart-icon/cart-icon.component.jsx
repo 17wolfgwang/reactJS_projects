@@ -9,7 +9,7 @@ const CartIcon = () => {
   const { isCartOpen, setIsCartOpen, cartItems, cartCount } =
     useContext(CartContext);
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
-
+  // This was my way. But with Context way is more better I think.
   //   const totalCartItemQuantity = cartItems.reduce(
   //     (acc, val) => acc + val.quantity,
   //     0
