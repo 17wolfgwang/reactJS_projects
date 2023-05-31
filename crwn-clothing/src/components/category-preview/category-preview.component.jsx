@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./category-preview.styles.scss";
 
-const CategoryPreview = ({ title, products }) => {
+const CategoryPreview = ({ products }) => {
+  const title = products.title;
+  const items = products.items;
   return (
     <div className="category-preview-container">
       <h2>
@@ -12,7 +14,7 @@ const CategoryPreview = ({ title, products }) => {
         </Link>
       </h2>
       <div className="preview">
-        {products
+        {items
           .filter((_, idx) => idx < 4)
           .map((product) => (
             <ProductCard key={product.id} product={product} />
