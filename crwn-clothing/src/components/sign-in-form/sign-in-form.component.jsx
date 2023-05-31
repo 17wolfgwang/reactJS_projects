@@ -37,7 +37,6 @@ const SignInForm = () => {
         email,
         password
       );
-      // setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       if (error.code == "auth/wrong-password") {
