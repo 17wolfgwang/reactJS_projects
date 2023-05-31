@@ -2,8 +2,6 @@ import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-import { UserContext } from "../../context/user.context";
-
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
