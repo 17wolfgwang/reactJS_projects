@@ -8,7 +8,8 @@ import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
 
-import { checkUserSession } from "./store/user/user.action";
+import { checkUserSession, setCurrentUser } from "./store/user/user.reducer";
+import { createUserDocumentFromAuth, onAuthStateChangedListner } from "./utils/firebase/firebase.utils";
 
 // const Shop = () => {
 //   return <h1>shop page!!</h1>;
@@ -18,7 +19,16 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkUserSession());
+    const unsubscribe = onAuthStateChangedListner((user) => {
+      if(user) {
+        createUserDocumentFromAuth(user);
+      }
+      console.log(setCurrentUser(user));
+      dispatch(setCurrentUser(user));
+      // dispatch(checkUserSession());
+
+    })
+    return unsubscribe;
   }, []);
   return (
     <Routes>
