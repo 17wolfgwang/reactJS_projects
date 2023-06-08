@@ -22,7 +22,6 @@ import { rootReducer } from "./root-reducer";
 //   storage,
 //   whitelist: ["cart"],
 // };
-
 // const sagaMiddleware = createSagaMiddleware();
 
 // const persistedReducer = persistReducer(persistConfig, rootReducer);
