@@ -25,6 +25,7 @@ import { rootReducer } from "./root-reducer";
 // };
 // const sagaMiddleware = createSagaMiddleware();
 
+//
 // const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleWares = [
