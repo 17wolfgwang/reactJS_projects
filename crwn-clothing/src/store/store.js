@@ -4,7 +4,7 @@
 //   applyMiddleware,
 // } from "redux";
 import {configureStore} from '@reduxjs/toolkit'
-// import { persistStore, persistReducer } from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import logger from "redux-logger";
 // import storage from "redux-persist/lib/storage";
 // // import thunk from "redux-thunk";
@@ -44,7 +44,7 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware)=>getDefaultMiddleware({
     serializableCheck: false,
-  }),
+  }).concat(middleWares),
 })
 // createStore(
 //   persistedReducer,
@@ -56,4 +56,4 @@ export const store = configureStore({
 
 
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);
